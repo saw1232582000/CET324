@@ -1,12 +1,12 @@
-const LoadingIcon = () => {
+const LoadingIcon = ({width="30px",height="30px"}:{width?:string,height?:string}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       //style={`margin: auto; background: rgb(255, 255, 255); display: block; shape-rendering: auto;`}
-      className="bg-rg m-auto"
-      width="30px"
-      height="30px"
+      className="bg-rg "
+      width={width}
+      height={height}
       viewBox="0 0 100 100"
       preserveAspectRatio="xMidYMid"
     >

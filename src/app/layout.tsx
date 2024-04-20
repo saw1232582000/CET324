@@ -7,6 +7,7 @@ import { Inter } from "next/font/google";
 import { TRPCReactProvider } from "~/trpc/react";
 import Nav from "./_components/Nav";
 import { SessionProvider } from "next-auth/react";
+import { ToastProvider } from "~/components/ui/toast";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,9 +32,11 @@ export default function RootLayout({
       >
         <SessionProvider>
           <TRPCReactProvider>
-            <div className="flex w-full items-center justify-center">
-              {children}
-            </div>
+            <ToastProvider>
+              <div className="flex w-full items-center justify-center">
+                {children}
+              </div>
+            </ToastProvider>
           </TRPCReactProvider>
         </SessionProvider>
       </body>

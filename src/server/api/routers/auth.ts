@@ -18,6 +18,7 @@ export const authRouter = createTRPCRouter({
       z.object({
         /*User Data*/
         name: z.string(),
+        email:z.string(),
         password: z.string(),
       }),
     )
@@ -26,13 +27,14 @@ export const authRouter = createTRPCRouter({
         const user = await ctx.prisma.user.create({
           data: {
             name: input.name,
+            email:input.email,
             password: await hash(input.password),
           },
         });
         return user;
       } catch (e: unknown) {
         const error = e as PrismaError;
-        if (error.code == "P2002") throw new Error("username already existed");
+        if (error.code == "P2002") throw new Error("email is already registered");
       }
     }),
   validateRecaptcha: publicProcedure

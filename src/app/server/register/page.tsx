@@ -24,6 +24,7 @@ import { Toaster } from "~/components/ui/toaster";
 
 type RegisterProps = {
   name: string;
+  email:string;
   password: string;
   confirmPassword: string;
 };
@@ -89,6 +90,7 @@ const Register = () => {
       }
       registerEndpoint?.mutate({
         name: credentials?.name,
+        email:credentials.email,
         password: credentials.password,
       });
     } catch (e) {
@@ -160,6 +162,15 @@ const Register = () => {
                 <Input
                   label="username"
                   {...register("name", { required: "username required" })}
+                  errors={errors}
+                  required
+                />
+              </div>
+              <div className="flex flex-col space-y-1.5">
+                <span>Email</span>
+                <Input
+                  label="email"
+                  {...register("email", { required: "email required" })}
                   errors={errors}
                   required
                 />

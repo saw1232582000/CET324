@@ -117,7 +117,7 @@ const Login = () => {
               </button>
             </div>
           </form>
-          <div className="flex w-full items-center text-center justify-center mt-[10px]">
+          <div className="flex w-full items-center flex-col text-center justify-center mt-[10px]">
             <span>
               Don't have an account?{" "}
               <Link
@@ -125,6 +125,15 @@ const Login = () => {
                 className="text-blue-400 underline"
               >
                 Sign Up
+              </Link>
+            </span>
+            <span>
+              
+              <Link
+                href={"/server/forgotPassword"}
+                className="text-blue-400 underline"
+              >
+                Forget Password
               </Link>
             </span>
           </div>

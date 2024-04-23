@@ -1,9 +1,9 @@
 import { createTRPCRouter, publicProcedure } from "../trpc";
 import { z } from "zod";
 import { hash } from "argon2";
-
 import { TRPCError } from "@trpc/server";
 import { recaptchaKey } from "~/lib/config/reactpcha";
+import { generateTokenExpiredDate } from "~/lib/util/generateTokenExpireDate";
 
 export interface PrismaError extends Error {
   code: string;
@@ -11,6 +11,8 @@ export interface PrismaError extends Error {
     target?: string[];
   };
 }
+
+
 
 export const authRouter = createTRPCRouter({
   register: publicProcedure
@@ -74,4 +76,24 @@ export const authRouter = createTRPCRouter({
         throw new Error(error?.message)
       }
     }),
+    resetPassword:publicProcedure
+    .input(
+      z.object({
+        email:z.string(),
+      })
+    )
+    .mutation(async({ctx,input})=>{
+      try{
+        const reset=await ctx.prisma.resetPassword.create({
+          data:{
+            email:input.email,
+            tokenExpireDate:generateTokenExpiredDate(5),
+            isUsed:false,
+          }
+        });
+        return reset;
+      }catch(e){
+        throw new Error("Password Reset Fail")
+      }
+    })
 });

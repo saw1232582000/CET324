@@ -61,4 +61,12 @@ model VerificationToken {
     @@unique([identifier, token])
 }
 
+model ResetPassword{
+    id            String    @id @default(cuid())
+    email         String
+    token         String @default(cuid())
+    tokenExpireDate String?
+    isUsed        Boolean
+}
+
 

@@ -11,7 +11,7 @@ type PasswordResetType = {
   confirmPassword: string;
 };
 
-const ResetPassword = () => {
+const ResetPassword = ({ params }: { params: { token: string } }) => {
   const {
     register,
     handleSubmit,
@@ -61,7 +61,7 @@ const ResetPassword = () => {
           <div className="mt-[10px] flex w-full flex-col items-center justify-center text-center">
             <span>
               <Link
-                href={"/server/register"}
+                href={"/server/login"}
                 className="text-blue-400 underline"
               >
                 Back

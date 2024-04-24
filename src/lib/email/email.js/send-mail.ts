@@ -16,7 +16,7 @@ export async function sendMail(targetMail: string,token:string) {
   const serviceId = "service_e6gjlig";
   const templateParams = {
     to_name: "Tester",
-    from_name: "CET313 Assignment",
+    from_name: "CET324 Assignment",
     userEmail: targetMail,
     message:
       `${"http://localhost:3000"}/server/resetPassword/${token}`,

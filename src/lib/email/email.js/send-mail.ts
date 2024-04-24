@@ -19,7 +19,7 @@ export async function sendMail(targetMail: string,token:string) {
     from_name: "CET324 Assignment",
     userEmail: targetMail,
     message:
-      `${"http://localhost:3000"}/server/resetPassword/${token}`,
+      `${process.env.BASE_URL}/server/resetPassword/${token}`,
   };
   const emailJsService = new EmailJs(
     configOption,

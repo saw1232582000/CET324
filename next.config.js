@@ -16,6 +16,9 @@ const config = {
       "tollgate-upload.s3.ap-southeast-1.amazonaws.com",
     ],
   },
+  env:{
+    BASE_URL:process.env.BASE_URL
+  }
 };
 
 export default config;

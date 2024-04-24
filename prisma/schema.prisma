@@ -64,7 +64,7 @@ model VerificationToken {
 model ResetPassword{
     id            String    @id @default(cuid())
     email         String
-    token         String @default(cuid())
+    token         String @default(cuid()) @unique
     tokenExpireDate String?
     isUsed        Boolean
 }

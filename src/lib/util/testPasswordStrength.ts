@@ -19,6 +19,6 @@ export function testPasswordStrength(password:string): number{
 }
 
 export function hasPasswordCriteria(password:string):boolean{
-    let criteria=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+    let criteria=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&])[A-Za-z\d#@$!%*?&]{8,}$/
     return criteria.test(password);
 }

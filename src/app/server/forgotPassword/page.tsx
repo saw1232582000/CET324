@@ -22,7 +22,7 @@ const ForgotPassword = () => {
 
   const { toast } = useToast();
 
-  const requestPasswordResetLink = api.auth.resetPassword.useMutation({
+  const requestPasswordResetLink = api.auth.requestResetPassword.useMutation({
     async onSuccess(data, variables, context) {
       await sendMail(data.email, data.token);
       toast({

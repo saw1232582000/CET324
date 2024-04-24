@@ -133,7 +133,7 @@ const Login = () => {
                 href={"/server/forgotPassword"}
                 className="text-blue-400 underline"
               >
-                Forget Password
+                Forgot Password?
               </Link>
             </span>
           </div>

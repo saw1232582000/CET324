@@ -21,6 +21,7 @@ import {
 import PasswordStrengthBar from "~/app/_components/passwordStrengthBar";
 import { useToast } from "~/components/ui/use-toast";
 import { Toaster } from "~/components/ui/toaster";
+import { ValidateEmail } from "~/lib/util/validateEmail";
 
 type RegisterProps = {
   name: string;
@@ -82,6 +83,9 @@ const Register = () => {
       }
       if (!isHuman) {
         throw new Error("Verify you are human");
+      }
+      if(!ValidateEmail(credentials.email)){
+        throw new Error("Invalid Email");
       }
       if (!hasPasswordCriteria(credentials.password)) {
         throw new Error(

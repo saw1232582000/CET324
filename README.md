@@ -26,3 +26,13 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 ## How do I deploy this?
 
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+
+
+## Setting CET324 Project
+
+Run following command in project directory
+
+-npm install (install necessary packages)
+-npx prisma migrate dev (run migration script to database)
+-npm run dev (start running app)
+

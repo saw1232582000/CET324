@@ -31,10 +31,10 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 
 Run following command in project directory
 
--run 'npm install' (install necessary packages)  
+-run *'npm install'* (install necessary packages)  
 -create a file called '.env' in the project root directory  
 -copy environment variables from '.env.example' and paste them in '.env'  
 -environment varibales values should be replace with your own value such as database URL  
--run 'npx prisma migrate dev' (run migration script to database)  
--run 'npm run dev' (start running app)  
+-run *'npx prisma migrate dev'* (run migration script to database)  
+-run *'npm run dev'* (start running app)  
 

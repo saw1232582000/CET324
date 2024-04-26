@@ -32,7 +32,7 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 Run following command in project directory
 
--npm install (install necessary packages)
--npx prisma migrate dev (run migration script to database)
--npm run dev (start running app)
+-[npm install] (install necessary packages)
+-[npx prisma migrate dev] (run migration script to database)
+-[npm run dev] (start running app)
 

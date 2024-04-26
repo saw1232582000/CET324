@@ -4,6 +4,7 @@ import { hash } from "argon2";
 import { TRPCError } from "@trpc/server";
 import { recaptchaKey } from "~/lib/config/reactpcha";
 import { generateTokenExpiredDate } from "~/lib/util/generateTokenExpireDate";
+import { verify } from "argon2";
 
 export interface PrismaError extends Error {
   code: string;
@@ -33,8 +34,11 @@ export const authRouter = createTRPCRouter({
         });
         return user;
       } catch (e: unknown) {
+        const prismaError = e as PrismaError;
         const error = e as PrismaError;
-        if (error.code == "P2002")
+        if (error.code == "P2002" && prismaError.meta?.target?.includes("name"))
+          throw new Error("username already existed");
+        if (error.code == "P2002" && prismaError.meta?.target?.includes("email"))
           throw new Error("email is already registered");
       }
     }),
@@ -110,11 +114,20 @@ export const authRouter = createTRPCRouter({
             token: input.token,
           },
         });
+        const user=await ctx.prisma.user.findFirst({
+          where:{
+            email:tokenCheck?.email || ""
+          },
+          select:{
+            password:true,
+          }
+        })
+        const isSame = await verify(user?.password || "", input.password);
         if (!tokenCheck) {
           throw new Error("Invalid Token");
         }
         else if(tokenCheck.isUsed){
-          throw new Error("This link is invalid");
+          throw new Error("This link is already used");
         }
         else {
           const expiredate = tokenCheck?.tokenExpireDate || "";
@@ -122,7 +135,11 @@ export const authRouter = createTRPCRouter({
           const currentDate = new Date();
           if (tokenExpiredDate < currentDate) {
             throw new Error("Token Expired");
-          } else {
+          }
+          else if(isSame){
+            throw new Error("Cannot reuse old password for better security");
+          }
+          else {
             try {
               await ctx.prisma.resetPassword.update({
                 where:{

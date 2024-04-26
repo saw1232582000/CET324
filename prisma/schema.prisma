@@ -45,7 +45,7 @@ model Session {
 
 model User {
     id            String    @id @default(cuid())
-    name          String 
+    name          String @unique
     password      String
     email         String @unique
     accounts      Account[]
@@ -68,5 +68,3 @@ model ResetPassword{
     tokenExpireDate String?
     isUsed        Boolean
 }
-
-

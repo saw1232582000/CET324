@@ -38,3 +38,7 @@ Run following command in project directory
 -run __'npx prisma migrate dev'__ (run migration script to database)  
 -run __'npm run dev'__ (start running app)  
 
+## Disclaimer
+
+This prototype is intended for educational purposes and demonstrates security best practices. It's recommended to conduct further security assessments before deploying in a production environment.  
+

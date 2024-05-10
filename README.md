@@ -27,6 +27,18 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 - https://cet-324.vercel.app (Test CET324 project demo by clicking this link)
 
 
+## Requirements
+Software Requirements:
+
+Node.js (version 18.17 or later): Next.js is a framework built on top of Node.js, so you'll need it installed on your development  
+machine. You can download the latest version from the official Node.js website [Node.js download].  
+Package manager (npm or yarn): Node.js comes bundled with npm (Node Package Manager). You can also use yarn, a popular alternative package manager.
+
+Optional Requirements:
+
+Code editor or IDE: While not strictly required, using a code editor or IDE with Next.js support can significantly improve your   development experience. Popular options include Visual Studio Code with official Next.js extensions, WebStorm, or Sublime Text   with plugins.  
+Basic understanding of web development: Having a grasp of HTML, CSS, and JavaScript will be beneficial when working with Next.js.  
+
 ## Setting CET324 Project
 
 Run following command in project directory

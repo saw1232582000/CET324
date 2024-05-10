@@ -31,7 +31,7 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 __Software Requirements:__
 
 Node.js (version 18.17 or later): Next.js is a framework built on top of Node.js, so you'll need it installed on your development machine.  
-You can download the latest version from the official Node.js website [Node.js download].  
+You can download the latest version from the official Node.js website [[Node.js download]->(https://nodejs.org/)].  
 Package manager (npm or yarn): Node.js comes bundled with npm (Node Package Manager). You can also use yarn, a popular alternative package manager.
 
 __Optional Requirements:__
